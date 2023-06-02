@@ -1,0 +1,58 @@
+﻿@model  IEnumerable<stoktakip.Models.roles>
+@{
+
+    ViewData["Title"] = "Kullanıcı Oluştur";
+
+}
+<div class="row justify-content-center">
+
+    <div class="col-xl-8 col-lg-8 col-md-7">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Kullanıcı Oluştur!</h1>
+                            </div>
+                            <form class="user" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Create">    
+                                
+                                
+                                <div class="form-group">
+                                    <input id="name" type="text" class="form-control form-control-user" required name="name" placeholder="Adı">
+                                </div>
+                                <div class="form-group">
+                                    <input id="surname" type="text" class="form-control form-control-user" required name="surname" placeholder="SoyAdı">
+                                </div>
+                                <div class="form-group">
+                                    <input id="username" type="text" class="form-control form-control-user" required name="username" placeholder="Kullanıcı Adı">
+                                </div>
+                                <div class="form-group">
+                                    <input id="userpass" type="text" class="form-control form-control-user" required name="userpass" placeholder="Şifre">
+                                </div>
+                                <div class="form-group">
+                                    <input id="usermail" type="text" class="form-control form-control-user" required name="usermail" placeholder="Mail">
+                                </div>                               
+                                <select id="roleId" name="roleId" class="form-control" required>
+                                    <label for="roleId">Rolü:</label>
+                                    @foreach (var role in Model)
+                                    {
+                                        <option value="@role.ID">@role.userrole</option>
+                                    }
+                                </select>
+
+                                <button type="submit" class="btn  btn btn-primary btn-user btn-block">Kaydet</button>                                 
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

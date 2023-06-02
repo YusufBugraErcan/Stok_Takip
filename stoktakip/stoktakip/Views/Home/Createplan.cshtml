@@ -1,0 +1,82 @@
+﻿@model stoktakip.Models.PlanDTO
+
+
+<div class="row justify-content-center">
+
+    <div class="col-xl-8 col-lg-8 col-md-7">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">                    
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Üretim Tarihleri!</h1>
+                            </div>
+                            <form class="user" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Updateteplan">
+                                <input hidden type="text" id="ID" name="ID" value="@Model.ID" />
+                                <input hidden type="text" id="OrderID" name="OrderID" value="@Model.OrderID" />
+                                <div class="form-group">
+                                    <input id="UretimBaslangicTarihi" type="date" class="form-control form-control-user" name="UretimBaslangicTarihi" required placeholder="Üretim Başlangıç Tarihi" value="@Model.UretimBaslangicTarihi.ToString("yyyy-MM-dd")">
+                                </div>
+                                <div class="form-group">
+                                    <input id="UretimBitisTarihi" type="date" class="form-control form-control-user" name="UretimBitisTarihi" required placeholder="Uretim Bitis Tarihi" value="@Model.UretimBitisTarihi.ToString("yyyy-MM-dd")">
+                                    
+
+                                </div>
+                                
+                                
+
+                                <div id="partial">
+
+                                    @Html.Partial("_uretim", Model.cinstur)
+                                </div>
+                                <button type="submit" onclick="return chechMessage(this)" class="btn  btn btn-primary btn-user btn-block">Planla</button>
+                            
+                            </form>
+                            <hr>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function chechMessage(e) {
+       var adet = document.getElementById("adet");
+       var maxAdet=document.getElementById("maxAdet");
+       var tur=document.getElementById("tur");
+       var cins=document.getElementById("cins")
+
+       
+       if(parseInt(maxAdet.value) < parseInt(adet.value))
+       {
+           alert("Stokta Yeterince Malzeme Yok");
+           return false;
+       }
+       else if(!tur.value)
+       {
+            alert("Tür Seçmelisiniz");
+            return false;
+       }
+       else if(!cins.value)
+       {
+            alert("Cins Seçmelisiniz");
+            return false;
+       }
+       else if(!adet.value)
+       {
+            alert("Adet Girmelisiniz");
+            return false;
+       }
+       else
+       {
+           return true;
+       }
+    }
+</script> 

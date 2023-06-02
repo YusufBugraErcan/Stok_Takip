@@ -1,0 +1,119 @@
+﻿@model stoktakip.Models.withOrderDTO
+@{
+
+    ViewData["Title"] = "Sipariş Formu Düzenle";
+}
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-8 col-lg-8 col-md-7">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Sipariş Düzenle!</h1>
+                                </div>
+                                <form class="user" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Edito">
+                                    
+
+                                    <div hidden class="form-group">
+                                        <input id="OrderID" type="text" class="form-control form-control-user" name="OrderID" value="@Model.OrderID">
+                                    </div>
+                                    <div class="form-group">
+                                    <input id="OrderDate" type="date" class="form-control form-control-user" required name="OrderDate" value="@Model.OrderDate.ToString("yyyy-MM-dd")">
+                                    </div>
+                                    <div class="form-group">
+                                    <input id="DeliverDate" type="date" class="form-control form-control-user" required name="DeliverDate" value="@Model.DeliverDate.ToString("yyyy-MM-dd")">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="LotNo" type="number" class="form-control form-control-user"  required name="LotNo" placeholder="Lot NO" value="@Model.LotNo">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="FirmName" type="text" class="form-control form-control-user" required name="FirmName" placeholder="Firma İsmi" value="@Model.FirmName">
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <input id="JobName" type="text" class="form-control form-control-user" required name="JobName" placeholder="İşin İsmi" value="@Model.JobName">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="Notes" name="Notes" rows="5" maxlength="max" required>@Model.Notes</textarea>
+                                    </div>
+                                <h3>Bodinoz Üretim</h3>
+                                <div class="form-group">
+                                    <input id="MalzemeCinsi" type="text" class="form-control form-control-user" required name="MalzemeCinsi" placeholder="Malzeme Cinsi" value="@Model.MalzemeCinsi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="SiparisMiktari" type="number" class="form-control form-control-user" required name="SiparisMiktari" placeholder="Sipariş Miktarı(Adet/Kg)" value="@Model.SiparisMiktari">
+                                </div>
+                                <div class="form-group">
+                                    <input id="En" type="number" class="form-control form-control-user" name="En" required placeholder="En" value="@Model.En">
+                                </div>
+                                <div class="form-group">
+                                    <input id="Kalinlik" type="number" class="form-control form-control-user" name="Kalinlik" required placeholder="Kalınlık" value="@Model.Kalinlik">
+                                </div>
+                                <div class="form-group">
+                                    <input id="KorukBilgisi" type="text" class="form-control form-control-user" name="KorukBilgisi" required placeholder="Körük Bilgisi" value="@Model.KorukBilgisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="KoronaBilgisi" type="text" class="form-control form-control-user" name="KoronaBilgisi" required placeholder="Korona Bilgisi" value="@Model.KoronaBilgisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="RenkBilgisi" type="text" class="form-control form-control-user" name="RenkBilgisi" required placeholder="Renk Bilgisi " value="@Model.RenkBilgisi">
+                                </div>
+                                <h3>Matbaa Üretim</h3>
+                                <div class="form-group">
+                                    <input id="KazanBilgisi" type="text" class="form-control form-control-user" name="KazanBilgisi" required placeholder="Kazan Bilgisi " value="@Model.KazanBilgisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="BaskiRenkleriBilgisi" type="text" class="form-control form-control-user" name="BaskiRenkleriBilgisi" required placeholder="Baskı Renk Bilgisi " value="@Model.BaskiRenkleriBilgisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="Ebat" type="number" class="form-control form-control-user" name="Ebat" placeholder="Ebat " value="@Model.Ebat">
+                                </div>
+                                <div class="form-group">
+                                    <input id="Kilo" type="number" class="form-control form-control-user" name="Kilo" placeholder="Kilo " value="@Model.Kilo">
+                                </div>
+                                <div class="form-group">
+                                    <input id="Metre" type="number" class="form-control form-control-user" name="Metre" placeholder="Metre" value="@Model.Metre">
+                                </div>
+                                <div class="form-group">
+                                    <input id="Rulo" type="number" class="form-control form-control-user" name="Rulo" placeholder="Rulo " value="@Model.Rulo">
+                                </div>
+                                <div class="form-group">
+                                    <input id="matbaaUsta" type="text" class="form-control form-control-user" name="matbaaUsta" placeholder="Matbaa Usta " value="@Model.matbaaUsta">
+                                </div>
+                                <h3>Kesim Üretim</h3>
+                                <div class="form-group">
+                                    <input id="EbatBilgisi" type="number" class="form-control form-control-user" name="EbatBilgisi" required placeholder="Ebat Bilgisi " value="@Model.EbatBilgisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="PaketSayisi" type="number" class="form-control form-control-user" name="PaketSayisi" placeholder="Paket Sayısı " value="@Model.PaketSayisi">
+                                </div>
+                                <div class="form-group">
+                                    <input id="SevkiyatSekli" type="text" class="form-control form-control-user" name="SevkiyatSekli" placeholder="Sevkiyat Şekli " value="@Model.SevkiyatSekli">
+                                </div>
+                                <div class="form-group">
+                                    <input id="kesimUsta" type="text" class="form-control form-control-user" name="kesimUsta" placeholder="Kesim Usta " value="@Model.kesimUsta">
+                                </div>
+                                <div class="form-group">
+                                    <input id="FaturaCinsi" type="text" class="form-control form-control-user" name="FaturaCinsi" placeholder="fatura Cinsi " value="@Model.FaturaCinsi">
+                                </div>
+                                    <button type="submit" class="btn  btn btn-primary btn-user btn-block">Kaydet</button>
+                                </form>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+

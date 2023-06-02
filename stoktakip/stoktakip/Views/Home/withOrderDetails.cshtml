@@ -1,0 +1,172 @@
+﻿@model IEnumerable<stoktakip.Models.withOrderDTO>
+
+@{
+    ViewData["Title"] = "With Order";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Siparişler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Sipariş Bilgileri</th>
+                                        <th>Matbaa Bilgileri</th>
+                                        <th>Kesim Bilgileri</th>
+                                        <th>Bodinoz Bilgileri</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td hidden>Order ID: </td>
+                                                        <td hidden>@item.OrderID</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sipariş Tarihi:</td>
+                                                        <td>@item.OrderDate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Teslim Tarihi:</td>
+                                                        <td>@item.DeliverDate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Lot No:</td>
+                                                        <td>@item.LotNo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Firma İsmi:</td>
+                                                        <td>@item.FirmName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>İşin İsmi:</td>
+                                                        <td>@item.JobName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Notlar:</td>
+                                                        <td>@item.Notes</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Matbaa Kazan Bilgisi:</td>
+                                                        <td>@item.KazanBilgisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Baskı Renkleri Bilgisi:</td>
+                                                        <td>@item.BaskiRenkleriBilgisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Ebat:</td>
+                                                        <td>@item.Ebat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Kilo:</td>
+                                                        <td>@item.Kilo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Metre:</td>
+                                                        <td>@item.Metre</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Rulo:</td>
+                                                        <td>@item.Rulo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matbaa Usta:</td>
+                                                        <td>@item.matbaaUsta</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Kesim Ebat Bilgisi:</td>
+                                                        <td>@item.EbatBilgisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kesim Paket Sayısı:</td>
+                                                        <td>@item.PaketSayisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kesim Sevkiyat Şekli:</td>
+                                                        <td>@item.SevkiyatSekli</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kesim Fatura Cinsi:</td>
+                                                        <td>@item.FaturaCinsi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kesim Usta:</td>
+                                                        <td>@item.kesimUsta</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Bodinoz Malzeme Cinsi:</td>
+                                                        <td>@item.MalzemeCinsi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz Sipariş Miktarı:</td>
+                                                        <td>@item.SiparisMiktari</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz En:</td>
+                                                        <td>@item.En</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz Kalınlık:</td>
+                                                        <td>@item.Kalinlik</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz Körük Bilgisi:</td>
+                                                        <td>@item.KorukBilgisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz Korona Bilgisi:</td>
+                                                        <td>@item.KoronaBilgisi</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bodinoz Renk Bilgisi:</td>
+                                                        <td>@item.RenkBilgisi</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-sm btn-block" onclick="location.href='@Url.Action("DeleteOrder", "Home", new { OrderID = item.OrderID })'">Sil</button>
+                                            <button type="submit" class="btn btn-primary btn-sm btn-block" onclick="location.href='@Url.Action("EditOrder", "Home", new { id = item.OrderID })'">Düzenle</button>
+                                            <button type="submit" class="btn btn-primary btn-sm btn-block" onclick="location.href='@Url.Action("CreatePlan", "Home", new { id = item.OrderID })'">Planla</button>
+
+                                            
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <form class="user" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Create">
+                                <!-- Form fields go here -->
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

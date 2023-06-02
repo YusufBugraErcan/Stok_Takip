@@ -1,0 +1,54 @@
+﻿@model IEnumerable<stoktakip.Models.withRoleDTO>
+@{
+    ViewData["Title"] = "With Role";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hoş Geldiniz</h1>
+
+</div>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Kullanıcılar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th hidden >User Id</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Kullanıcı Şifre</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Rol</th>
+                        <th>Mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td hidden>@user.ID</td>
+                            <td>@user.username</td>
+                            <td>@user.userpass</td>
+                            <td>@user.name</td>
+                            <td>@user.surname</td>
+                            <td>@user.role</td>
+                            <td>@user.usermail</td>
+                            <td>
+                                <a href="../edituser/@user.ID" class="btn btn-primary btn-sm">Düzenle</a>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Sil", "delete", "home", new { id = user.ID }, new { @class = "btn btn-danger btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>                      
+   

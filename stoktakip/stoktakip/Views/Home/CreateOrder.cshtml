@@ -1,0 +1,160 @@
+﻿@model IEnumerable<stoktakip.Models.orders>
+@{
+
+    ViewData["Title"] = "Sipariş Formu Oluştur";
+
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-8 col-md-7">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Sipariş Formu Oluştur</h1>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="createOrder">
+                                <div class="form-group">
+                                    <label for="OrderDate">Sipariş Tarihi:</label>
+                                    <input type="datetime-local" id="OrderDate" name="OrderDate" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="DeliverDate">Teslim Tarihi:</label>
+                                    <input type="datetime-local" id="DeliverDate" name="DeliverDate" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="LotNo">Lot No:</label>
+                                    <input type="number" id="LotNo" name="LotNo" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="FirmName">Firma Adı:</label>
+                                    <input type="text" id="FirmName" name="FirmName" maxlength="max" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="JobName">İş Adı:</label>
+                                    <input type="text" id="JobName" name="JobName" maxlength="max" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Notes">Notlar:</label>
+                                    <textarea id="Notes" name="Notes" rows="5" maxlength="max" class="form-control" required></textarea>
+                                </div>                         
+                            <hr />
+                            <h3>Bodinoz Uretim</h3>
+                            <div class="form-group">
+                                <label for="MalzemeCinsi">Malzeme Cinsi:</label>
+                                <input type="text" id="MalzemeCinsi" name="MalzemeCinsi" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SiparisMiktari">Sipariş Miktarı:</label>
+                                <input type="number" id="SiparisMiktari" name="SiparisMiktari" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="En">En:</label>
+                                <input type="number" id="En" name="En" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Kalinlik">Kalınlık:</label>
+                                <input type="number" id="Kalinlik" name="Kalinlik" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="KorukBilgisi">Körük Bilgisi:</label>
+                                <input type="text" id="KorukBilgisi" name="KorukBilgisi" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="KoronaBilgisi">Korona Bilgisi:</label>
+                                <input type="text" id="KoronaBilgisi" name="KoronaBilgisi" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="RenkBilgisi">Renk Bilgisi:</label>
+                                <input type="text" id="RenkBilgisi" name="RenkBilgisi" class="form-control" required />
+                            </div>
+                            <hr />
+                            <h3>Matbaa</h3>
+                            <div class="form-group">
+                                <label for="KazanBilgisi">Kazan Bilgisi:</label>
+                                <input type="text" id="KazanBilgisi" name="KazanBilgisi" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="BaskiRenkleriBilgisi">Baskı Renkleri Bilgisi:</label>
+                                <input type="text" id="BaskiRenkleriBilgisi" name="BaskiRenkleriBilgisi" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Ebat">Ebat:</label>
+                                <input type="number" id="Ebat" name="Ebat"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Kilo">Kilo:</label>
+                                <input type="number" id="Kilo" name="Kilo"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Metre">Metre:</label>
+                                <input type="number" id="Metre" name="Metre"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Rulo">Rulo:</label>
+                                <input type="number" id="Rulo" name="Rulo"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Usta">Matbaa Usta:</label>
+                                <input type="text" id="matbaaUsta" name="matbaaUsta"  class="form-control" />
+                            </div>
+                            <hr />
+                            <h3>Kesim</h3>
+                            <div class="form-group">
+                                <label for="EbatBilgisi">Ebat Bilgisi:</label>
+                                <input type="number" id="EbatBilgisi" name="EbatBilgisi" required class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="PaketSayisi">Paket Sayısı:</label>
+                                <input type="number" id="PaketSayisi" name="PaketSayisi"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SevkiyatSekli">Sevkiyat Şekli:</label>
+                                <input type="text" id="SevkiyatSekli" name="SevkiyatSekli"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="kesimUsta">Kesim Usta:</label>
+                                <input type="text" id="kesimUsta" name="kesimUsta"  class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="FaturaCinsi">Fatura Cinsi:</label>
+                                <input type="text" id="FaturaCinsi" name="FaturaCinsi"  class="form-control" />
+                            </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

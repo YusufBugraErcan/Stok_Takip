@@ -1,0 +1,63 @@
+﻿@model IEnumerable<stoktakip.Models.Stok>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Stokları Düzenle</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Firma Adı</th>
+                        <th>Ürün Cinsi</th>
+                        <th>Ürün Miktarı</th>
+                        <th>Ürün Türü</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var stok in Model)
+                    {
+                        <tr>
+                            <td>@stok.FirmaAdı</td>
+                            <td>@stok.UrunCinsi</td>
+                            <td>@stok.UrunMiktarı</td>
+                            <td>@stok.UrunTuru</td>
+                            <td>@stok.tarih.ToString("yyyy-MM-dd")</td>
+                            <td>
+                                <a href="@Url.Action("DeleteStock", "Home", new { ID = stok.ID })" class="btn btn-primary btn-sm btn-block">Sil</a>
+                                <a href="@Url.Action("EditStock", "Home", new { id = stok.ID })" class="btn btn-primary btn-sm btn-block">Düzenle</a>
+
+                            </td>
+                            <td>                               
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

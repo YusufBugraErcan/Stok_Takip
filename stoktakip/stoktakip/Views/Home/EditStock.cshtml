@@ -1,0 +1,42 @@
+﻿@model stoktakip.Models.Stok
+
+
+
+
+<h2>Stokları Düzenle</h2>
+
+<form asp-controller="Home" asp-action="EditStock" method="post">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="form-group">
+        <label asp-for="FirmaAdı">Firma Adı</label>
+        <input asp-for="FirmaAdı" class="form-control" required />
+        <span asp-validation-for="FirmaAdı" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UrunCinsi">Ürün Cinsi</label>
+        <input asp-for="UrunCinsi" class="form-control" required />
+        <span asp-validation-for="UrunCinsi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UrunMiktarı">Ürün Miktarı</label>
+        <input asp-for="UrunMiktarı" class="form-control" required />
+        <span asp-validation-for="UrunMiktarı" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UrunTuru">Ürün Türü</label>
+        <input asp-for="UrunTuru" class="form-control" required />
+        <span asp-validation-for="UrunTuru" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="tarih">Tarih</label>
+        <input asp-for="tarih" class="form-control" required />
+        <span asp-validation-for="tarih" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
